@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <script>
+            //조건문
+            a = 10;
+            b = 20;
+            if(a > b){
+                console.log("안녕하세요");
+            } else{
+                console.log("반갑습니다");
+            }
+            // 프로그램 1순위 : if문, 조건문, 반복문
+            
+            if(a == 10){
+                console.log("a는 10이다..");
+            }
+        
+            if(a > 5){
+                
+            }else if(a > 10){
+            
+            }else{
+
+            }
+            
+            a = 0; // a가 타입이 숫자인 경우 : (0 => false)
+            // 나머지의 경우 true
+            a = '0'; // 문자인 경우에는 true
+            a = '1111';
+            a = ''; // 문자형인 경우에 false로 처리되는 경우
+            a = null; // false
+            a = undefined; // false
+
+
+            if(a) { // a : true
+                console.log("a!!!!!????????");
+            } 
+            // typeof xxx = 'undefined'
+            if(typeof xxx){
+                console.log("xxx!!!!!??????");
+            }
+
+            a = "축구";
+            // 비교연산자 중 1 : switch문
+            switch (a) {
+
+                case '농구': // :(콜론) 주의
+                    console.log('a는 농구 입니다.'); // ;(세미콜론) 주의
+                    break;
+                case "축구":
+                    console.log('a는 축구 입니다.');
+                    break;
+                case "야구":
+                    console.log('a는 야구 입니다.');
+                    break;
+                case "당구":
+                   console.log('a는 당구 입니다.');
+                    break;
+                case "족구":
+                console.log('a는 족구 입니다.');
+                    break;
+                
+                default:
+                console.log('a는 이도저도 아닙니다.')
+                    break;
+            }
+        
+        for(var i = 0 ; i < 5 ; i++){ // for문의 기본적 형태(다른 언어와 동일한 형태)
+            console.log("안녕하세요");
+        }
+        // i : for문 내부에서만 사용되고 소멸되어야 하는 변수  
+        for(let i = 0 ; i < 5 ; i++){ // for문의 기본적 형태(다른 언어와 동일한 형태)
+            console.log("안녕하세요");
+        }
+        // 2015년도 구문(let) 메모리 생성방식에 차이가 있음.(신경쓰지 말것 => 이미 잘 수정됨) 
+
+        var sum = 0;
+        for(var i = 0 ; i < 10 ; i++){
+            //sum += i;
+            sum = sum + i;
+        }
+
+        console.log("0~9까지의 합 : " + sum);
+
+        var arr = [1,2,3,4,5,6,7,8];
+        var arr = [11,13,12,14,15];
+
+        for(var i = 0 ; i < 5 ; i++) {
+            console.log(arr[i]);
+        }
+        // 배열을 반복적으로 돌리는 방법 : 향상된 for문
+        // 자바스크립트는 향상된 for문을 두가지로 적용
+                
+        for(var data of arr){
+            // var 변수 데이터에 한가지씩 넣어줘서 돌림
+            console.log(data);
+        } // of와 in이 차이가 있음.
+        // java : for(int data : arr)
+        for(var i in arr){
+            console.log(i);
+            console.log(arr[i]);
+        }
+
+        a = 10
+        while(true){
+            a++;
+            if(a >= 30){
+                break;
+            }
+            
+            if(a%2 == 0){
+                continue;
+            }
+            
+        }
+        // do-while문은 흔히 쓰지는 않는다.
+        // for of > for in
+        
+        </script>
+    </head>
+    <body>
+        <div>안녕하세요</div>
+    </body>
+</html>
+<!-- 
+문법의 종류
+논리와 관련된 문법
+설계와 관련된 문법 
+-->

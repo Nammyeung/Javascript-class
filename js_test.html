@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            var inputValue = prompt("값을 입력하세요"); // API = 함수
+            
+            var result = inputValue + 30; // 입력 받은 값은 무조건 문자
+            var result = parseInt(inputValue) + 30; // int로 변경
+            var result = Number(inputValue) + 30; // int로 변경
+
+            if(inputValue > 90){
+                alert("A학점입니다.");
+            }else if(inputValue > 80){
+                alert("B학점입니다.");
+            }else if(inputValue > 70){
+                alert("C학점입니다.");
+            }else{
+                alert("F학점입니다.");
+            }
+
+            alert("출력 값 : " + result);            
+            // 변수 명명 법 in script 
+
+            // 2번
+            for(var i = 0 ; i < 5 ; i++){
+                console.log("안녕하세요");
+            }
+            // 3번(1~76까지의 합....)
+            
+            /*또한 가능 
+            sum = sum + 1; // sum += 1;
+
+            for(var i = 1 ; i <= 76 ; i+1){}*/
+            
+            
+            var inputValue = prompt("숫자 입력");
+            inputValue = Number(inputValue);
+
+            sum = 0;
+            for(var i = 1 ; i <= inputValue ; i++){
+               
+                /* var sum = 0; => 문제 발생 
+                => sum이 for문에 돌면서 0으로 초기화되기 때문에 
+                원하는대로 작동하지 않는다. */
+            
+                sum += i;
+                console.log(i);
+            }
+            console.log("1~76 합 : " + sum);
+            alert("1~" + inputValue + " 합 : " + sum)
+            
+            
+            // 4번
+            for(var i = 1 ; i < 10 ; i++){
+                var result = 7 * i;
+                console.log(i + " * 7 = " + result);
+                console.log("7 * " + i + " = " + result);
+            }
+            console.log(i);
+            // 알고리즘은 계속하면 외워지지만 숙달하는데 시간이 걸린다.
+
+            // 5번
+            for(var i = 1 ; i < 10 ; i++){
+                console.log(i + " 단");
+                for(var j = 1 ; j < 10 ; j++){
+
+                console.log(i + " * " + j + " = " + j*i);
+
+                }
+            }
+            
+            /* ---------------정답-----------------
+            for(var x = 2 ; x <= 9 ; x++){
+                
+                for(var y = 1 ; y <= 9 ; y++){
+                    var result = x * y;
+                    console.log(x + " * " + y + " = " + result);
+                                => 문자 연산(숫자형 + 문자형)
+                    }
+                }
+            */
+
+            // 6번
+            
+            for(var i = 1 ; i < 10 ; i++){
+                console.log(i + " 단");
+                for(var j = 1 ; j < 10 ; j++){
+                    if(i === 7 || i === 6) {
+                        continue;
+                    }else{    
+                console.log(i + " * " + j + " = " + j*i);
+                    }
+                }
+            }
+
+            /* ---------------정답-----------------
+            for(var x = 2 ; x <= 9 ; x++){
+                
+                for(var y = 1 ; y <= 9 ; y++){
+                    var result = x * y;
+                    if( !(x == 6 || x == 7) ){
+                    console.log(x + " * " + y + " = " + result);
+                                => 문자 연산(숫자형 + 문자형)
+                    }
+                }
+            }
+            */
+            // ****************continue문 활용****************
+            for(var x = 2 ; x <= 9 ; x++) {
+
+                if( x == 6 || x == 7) {
+                    continue; /* => 해당 코드 아래의 코드가 복잡한 경우 효율적
+                    (continue위에서 다시 올라감) */
+                }
+            }
+
+
+            // 7번
+            var isPrime = true; // On-Off 시키기 위한 변수
+            // for문을 다 돈다음에 바깥쪽에서 출력시키기 위함.
+            var value = 865;
+            // 소수의 정의 : 1 혹은 자신이외의 수와는 나눠지지 않는 수
+            for(var i = 2 ; i <= Math.sqrt(value) ; i++) { // Math.sqrt() : 기본 라이브러리에 등록된 클래스(함수) 명
+                if(value % i == 0) {
+                    isPrime = false; // 스위치를 킴.
+                    break;
+                }
+            }
+
+            if(isPrime == true){
+                console.log(value + "는 소수입니다."); //console : 클래스 명 , log : 변수 명
+            }else{
+                console.log(value + "는 소수가 아닙니다.");
+            }
+
+            /* 
+            소수 판별법
+            방법1)
+            
+            소수를 루트 N이하로 판별하면 되는 이유 증명
+            X가 합성수라고 가정
+            X = M x N & M >= N
+            => X = M x N
+            => M x M >= M x N ... (N <= M)
+            => M^2 >= X
+            => M >= sqrt(X) & M >= N
+            => M의 최소값 : sqrt(X)
+            => M의 가장 작은 수가 sqrt(X)이고 N은 M보다 작기 
+            때문에 N은 아무리 커도 sqrt(X)
+            => X = sqrt(X)보다 크거나 같은 수 * sqrt(X)보다 작거나 같은 수
+            => N보다 같거나 작은 수들로만 모듈러 연산(소수 판별)해서 
+            0이 나오면 합성수, 0이 나오지 않으면 소수
+            **** X = M x N이 모든 상황에서 가능할 수 있는 합성수(소수가 아닌 수)라는 점에 주목 M/N일 수 있는 모든 상황에서만 판별
+            수학에서는 특정 조건을 가정한 상황에 모순이 발생하면 해당 대상(합성수)에 대한 정의 혹은 명제를 만족하지 못하므로 
+            정반대(흑백 논리)의 조건에 해당하는 대상이 되는 방식(소수)으로 접근하는 경우가 많다.
+            
+            방법2)
+            에라토스테네스의 체 참고
+            */
+            
+            //1+(1+2)+(1+2+3)+(1+2+3+4)...(1+2+3+..+10)
+            var sum = 0;
+            for(var x = 1 ; x <= 10 ; x++) {
+                for(var y = 1; y <= x ; y++) {
+                    sum = sum + y;
+                }
+            }
+            //for문을 2개 돌리는 경우
+            console.log(sum);
+
+            var sum = 0;
+            var tempSum = 0;
+            for(var x = 1 ; x <= 10 ; x++){
+                tempSum += x;
+                //1 => 1+2 => 1+2+3 => ... => 1+2+3+...+10
+                sum += tempSum;
+                //1 + (1+2) + (1+2+3) + ... + (1+2+3+...+10)
+            }
+            //for문을 1개 돌리는 경우 => 퍼포먼스가 월등히 좋음
+            //둘 중에 어떤게 효율적?(연산 할 때만 좋음)
+
+            var sum = 0;
+            
+            for(var x = 1 ; x <= 10 ; x++){
+                sum += x * (11-x);
+                //(1 * 10) + (2 * 9) + (3 * 8) + (4 * 7)
+                // +(5 * 6)... 
+            }
+
+            console.log(sum);
+
+        </script>
+    </head>
+    <body>
+         <!-- 변수 명명 법 in body -->
+    </body>
+</html>

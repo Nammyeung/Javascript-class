@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #text_box{
+                width : 300px;
+                border : 1px solid black;
+                height : 20px;
+                text-overflow : ellipsis;
+                white-space : nowrap;
+                /* text-overflow : ellipsis; + white-space : nowrap; 
+                둘을 엮어줘야지만 ...이 나옴 */
+                overflow : hidden;
+                /* 높이를 지정하면 overf
+                low 발생 */
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style = "text-align: center;">안녕하세요</h1>
+        <h1>반갑습니다</h1>
+        <!-- default가 높이를 안맞춰줘서 word breaking이 된다. -->
+        
+        <div id = "text_box">
+            안녕하세요 반갑습니다.ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㅇㄴㄻㅇㄴㄻㅇㄴㄹ
+
+        </div>
+    </body>
+</html>

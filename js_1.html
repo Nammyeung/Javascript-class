@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <script>
+            //변수...
+            /*.......*/
+            var a = 10; // 타입이 없는 변수 => 타입 스크립트(마이크로소프트)에서 없애려고 하는 것
+            // a => primitive type(기본변수)
+            a = 20;
+            a = "\"안녕하세요";
+            // 문법적으로 사용되는 키워드는 문자열에 추가시키기 위해 \ or '' or "" 중 택 1
+            a = '"안녕하세요';
+            a = 333.333;
+            a = true; // true, false : 문법키워드
+            a = false;
+            // 문자형을 가리지 않고 들어가는 것이 코딩에서 큰 문제를 일으킬 수 있다.
+            // 본래 문자형이 아니지만 변환해서 창에 띄우게 된다.
+            alert(a);
+            // alert() : 경고창을 띄우는 api
+            console.log(a);
+            // console.log() : 콘솔창에 띄워줌
+            console.log("안녕하세요");
+            /*컴파일을 안한다 = 대화형 언어(프로그램이 끝나지 않는다? = 프로그램이 끝나도 데이터가 유지)
+            => 컴파일 과정을 거치지 않고 코드를 바로 띄움*/
+        
+            var b = 20;
+            c = 30;
+        
+            console.log(c);
+
+            a = 10;
+            console.log(typeof(a));
+            a = 111.111;
+            console.log(typeof a);
+            a = "안녕하세요"
+            console.log(typeof a);
+            a = true
+            console.log(typeof a);
+            // 결론 : 메모리에 들어갈 때는 타입이 있다.
+            
+            b = typeof a;
+
+            console.log(b);
+            console.log(typeof b);
+
+            a = 10;
+            if(typeof a == "number"){
+
+            }
+            a = null;
+            // null : 어딘가를 가리키고 있는 메모리가 없다.
+            // 주소가 없다는 값을 의미
+            // *****************************null이 더 중요
+            a = undefined;
+            // undefined : 아예 자바에 선언이 되어있지 않다.
+            // defined 되어있지 않다는 값(undefined)이 들어감.
+
+            a = 3;
+            b = 2;
+            // number 타입(integer x)
+            c = a + b;
+            c = a - b;
+            c = a * b;
+            c = a / b;
+            c = a % b;
+
+            c++; // 메모리의 값을 변환시키는 연산자 - 증감연산자
+            c += 10; // 메모리의 값을 변환시키는 연산자 - 복합대입연산자
+            
+            c = a < b; // boolean 타입.
+
+            a = 10;
+            // b = 10;
+            b = '10';
+            c = a == b; // if문에서 boolean 타입.
+            c = a === b;
+            // 자바에서는 문법적으로 안됨(c = 숫자형 == 문자형)
+
+            // parseInt(13 / 5) => Int형으로 바꿔야 함. => 정수 나누기가 내장되어있지 않음.
+            console.log(c);
+
+            // console.log(d); // d를 선언하지 않았는데 띄움
+            
+            console.log(typeof qqqq);
+            // 선언하지 않은 변수를 typeof를 하면 : undefined
+
+            a = '안녕하세요';
+            b = 10;
+            c = 20;
+            d = a + (b + c);
+            console.log(d);
+            // 숫자형(b)를 문자로 바꿔서 더해줌
+            
+            a = NaN;
+
+            // a = "111.1111";
+            a = "안녕하세요";
+            b = Number(a);
+            // 대부분의 언어에서는 exception이 발생하지만 그대로 출력
+            console.log(b);
+
+            // --- & !-- 정확한 연산을 하겠다.
+
+            /* ==연산자 : 동등 연산자로, 피연산자가 서로 다른 타입이면 타입을 강제로 변환하여 비교한다. 
+            하지만 형 변환이 어떻게 되는지 하나하나 외워서 사용하는 것은 복잡하기만 할 뿐이다.*/
+
+            /* ===연산자 : 일치 연산자로, 두 피연산자를 더 정확하게 비교한다.*/
+
+        </script>
+    </head>
+    <body>
+        <div>안녕하세요</div>
+    </body>
+</html>
