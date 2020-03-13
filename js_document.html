@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .font-test{
+                font-size : 30px;
+            }
+
+            .font-blue{
+                color : cyan;
+            }
+            /* ********폰트 변경 조건 명령문 설정******* */
+            #box1{
+                width : 200px;
+                height : 200px;
+                background-color : chocolate;
+            }
+            /* ***********div 기본 조건 설정********** */
+        </style>
+        <script>
+            function box1MouseOver(){
+                // console.log("실행됨...!!!");
+                var xxx = document.getElementById("box1");
+                xxx.style.backgroundColor = "blue";
+                // MouseOver가 되면 색상이 바뀜
+                xxx.style.width = "100px";
+                // 자동으로 증가되게끔 하겠다.
+
+                xxx.setAttribute("class","font-test font-blue");
+                // 키-값
+            }
+
+            function aaa(){
+                var box1 = document.getElementById("alert-box");
+                box1.style.display = "block";
+            }
+
+
+            function ttt(){
+                var box1 = document.getElementById("box1");
+                box1.style.width = "200px";
+                box1.style.backgroundColor = "red";
+
+                // box1.setAttribute("class","");
+                // box1.removeAttribute("class");
+                box1.setAttribute("class","font-test font-size");
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+        <div id = "box1" onclick = "aaa()" onmouseout = "ttt()" onmouseover = "box1MouseOver()">안녕하세요</div>
+        <div style = "display : none;" id = "alert-box">비밀번호가 틀렸습니다.</div>
+        <div>그 다음 박스....</div>
+
+
+    </body>
+</html>

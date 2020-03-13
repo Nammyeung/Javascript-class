@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style></style>         
+   
+        <script>
+             function addLI(){
+                var textBox = document.getElementById("text-box");
+                var text = textBox.value;
+                // alert(text);
+
+                var liBox = document.createElement("li");
+                liBox.innerText = text;
+                // li tag를 추가하기 위한?
+                var ulBox = document.getElementById("test-ul");
+                ulBox.appendChild(liBox);
+                 }
+                function removeLI(){
+
+                    var textBox = document.getElementById("text-index");
+                    var text = textBox.value; // 숫자로 가져와도 문자
+                    var index = Number(text);
+
+                    if(Number.isNaN(index)){ // return이 True or False
+                        alert("숫자를 입력해주세요");
+                        textBox.value = "";
+                        textBox.focus();
+                        return;
+                    
+                                                            
+                        // test-ul 가져오기
+                    }
+                    var ul = document.getElementById("test-ul");
+
+                    console.log(index);
+                    console.log(typeof index);
+
+                    ul.removeChild(ul.children[index]); // element들만 가져옴.
+                    // ul.removeChild(ul.childNodes[index]); // Enter 친 것들도 가져옴.
+
+                }
+            </script>
+        </head>
+    <body>
+        <ul id = "test-ul">
+            <!-- <li>안녕하세요</li>
+            <li>반갑습니다</li> -->
+        </ul>
+
+        <input id = "text-box" type = "text">
+        <input onclick = "addLI()" type = "button" value = "클릭">
+        <!-- input으로 입력한 값이 li로 붙도록 작성 -->
+        <!-- libox를 찾아서 li에 갖다 붙이겠다 -->
+        <br>
+        몇번째를 지웁니까? : <input id = "text-index" type="text">
+        <input onclick = "removeLI()" type="button" value="지우기">
+    </body>
+</html>
+
+<!-- VM1894:1 Uncaught ReferenceError: ttt is not defined
+    at eval (eval at removeLI (js_document2.html:28), <anonymous>:1:13)
+    at removeLI (js_document2.html:34)
+    at HTMLInputElement.onclick (js_document2.html:56)
+eval @ VM1894:1
+removeLI @ js_document2.html:34
+onclick @ js_document2.html:56
+Show 2 more frames
+
+var ttt = document.getElementById("test-ul");
+undefined
+
+
+console.log(ttt):
+
+VM2028:1 Uncaught SyntaxError: Unexpected token ':'
+    at removeLI (js_document2.html:34)
+    at HTMLInputElement.onclick (js_document2.html:56)
+removeLI @ js_document2.html:34
+onclick @ js_document2.html:56
+Show 2 more frames
+
+console.log(ttt);
+
+VM2041:1 <ul id=​"test-ul">​<li>​
+    
+    안녕하세요​</li>​<li>​3​</li>​<li>​4​</li>​<li>​5​</li>​<li>​6​</li>​<li>​7​</li>​<li>​8​</li>​<li>​9​</li>​<li>​10​</li>​</ul>​
+
+undefined
+
+console.log(ttt.childNodes):
+
+VM2229:1 Uncaught SyntaxError: Unexpected token ':'
+    at removeLI (js_document2.html:34)
+    at HTMLInputElement.onclick (js_document2.html:56)
+removeLI @ js_document2.html:34
+onclick @ js_document2.html:56
+Show 2 more frames
+
+console.log(ttt.childNodes);
+VM2241:1 NodeList(11) [text, li, text, li, li, li, li, li, li, li, li]
+
+undefined -->

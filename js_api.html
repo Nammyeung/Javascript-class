@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            //쓸만한 기타 등등 API 연습?....
+            var test1 = "안녕.하세요"; 
+            // test1 타입 : String type(객체 타입)
+            // => js spring을 다 쓸 수 있음.
+            var t = test1.charAt(0); // String(참조변수).charAt(인덱스);
+            console.log(t);
+
+            var index = test1.indexOf("하세"); // console.log(idex) = 2
+            var index = test1.indexOf("하세", 3); // n : 찾기 시작하는 위치
+            console.log(index);
+            var index = test1.indexOf("qqq"); // console.log(idex) = -1
+            console.log(index);
+
+            index = test1.lastIndexOf(".");
+            console.log(index);
+
+            test1.replace("하세","<br>하세<br>");
+            console.log(test1);
+
+            test1 = test1.substring(1,4); // 인덱스 1부터 4이전(3)까지
+            console.log(test1);
+            /* 파이썬은 바로 바꿈
+            대부분 언어는 replace를 바꿔서 새로운 값을 리턴 */
+
+            var v1 = 3.13;
+            var t = Number.isFinite(v1); // static
+            console.log(t);
+
+            var randomValue = parseInt(Math.random() * 100);
+            console.log(randomValue);
+            //내장 객체....
+            
+            var xxx = new Date();
+            console.log(xxx.getMonth()); 
+            // 대부분의 언어에서 동일 => 0 : 1월, 1 : 2월, .....
+            console.log(xxx.getSeconds());
+            console.log(xxx.getDay()); // 요일에 해당하는 숫자
+
+        </script>
+    </head>
+    <body>
+        <div>안녕하세요</div>
+    </body>
+</html>

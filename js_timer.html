@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <style>
+            #box1{
+                width : 200px;
+                height : 200px;
+                background-color : red;
+            }
+            /* 마우스를 올렸을 때 서서히 너비가 넓어지도록 */
+        </style>
+        <script>
+            var sizeX = 200;
+            function incFunc(){
+
+                if(sizeX >= 500){
+                    clearInterval(incHandler);
+                    // clearInterval() : to stop  the time;
+                    incHandler = null;
+                }
+
+                var box1 = document.getElementById("box1");
+                // returns the element that has the ID attribute with the specified value.
+                sizeX += 2;
+                box1.style.width = sizeX + "px"; // px를 문자로 만들어서 넣어줘야 반영됨.
+                // 타이머(interval)로 호출
+                //1초마다 clearinterval하기까지 주기적으로 함수를 호출
+            }
+
+            function decFunc(){
+
+                if(sizeX <= 200){
+                    clearInterval(desHandler);
+                     // clearInterval() : to stop  the time;
+                    desHandler = null;
+                }
+
+                var box1 = document.getElementById("box1");
+                 // returns the element that has the ID attribute with the specified value.
+                sizeX -= 2;              
+                box1.style.width = sizeX + "px";
+                   
+            }
+
+            var incHandler = null;
+            function increase(){
+
+                if(desHandler != null){
+                    clearInterval(desHandler);
+                    // clearInterval() : to stop  the time;
+                    desHandler = null;
+                }
+
+                if(incHandler != null){
+                    return;
+                }
+
+                incHandler = setInterval(incFunc,1000/60); 
+                // setInterval() : Display the current time that will execute the "myTimer" function once every 1 second
+                // var을 넣을 때 : 작동안함 (x)
+                // var을 안넣을 때 : 작동함 (o)
+                // 60프레임 : 사람이 가장 보기 편한 프레임
+            }
+
+            var desHandler = null;    
+            function decrease(){
+
+                if(incHandler != null){
+                    clearInterval(incHandler);
+                    // clearInterval() : to stop  the time;
+                    incHandler = null;
+                }
+
+                if(desHandler != null){
+                    return;
+                }
+
+                desHandler = setInterval(decFunc,1000/60);
+                // setInterval() : Display the current time that will execute the "myTimer" function once every 1 second
+                   
+            }
+
+        </script>
+    </head>
+    <body>
+        <div onmouseover = "increase()" onmouseout = "decrease()" id = "box1"></div>
+        <!-- onmouseover = 마우스 올렸을 때 실행할 함수 -->
+    </body>
+</html>
+
+<!-- Jquery(안쓰려고함), removeelement를 동적활동을 편하게 하기 위한 라이브러리화함 -->

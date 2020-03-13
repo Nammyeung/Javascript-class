@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            //객체
+            //최근에는 클래스 문법을 지원하지만 아직 잘 사용하는 추세는 아니다.
+            var student1 = {}; // 객체 선언 방법 / 파이썬 딕셔너리, 자바 해쉬맵
+            // JSON (JavaScript Object Notation)
+            var student2 = {
+                name : "한조", // 키 : 값
+                score : 70,    // 키 : 값
+                number : 10,    // 키 : 값
+                test : function(){ // test : 키, function : 값
+                    console.log("학생 메소드 호출");
+                }
+
+            }; // 비어있는 객체 생성.
+
+            console.log(student2);
+
+            console.log(typeof student2); // object 타입 (java의 객체)
+
+            console.log(student2.name);
+            console.log(student2.score);
+            console.log(student2.number);
+            student2.test();
+
+            student2.name = "트레이서";
+            console.log(student2.name);
+
+
+            student2.aaa = "안녕하세요"; 
+            // 없는 변수를 입력하면 생성해서 넣을 수 있음. (흔하게 쓰이지는 않음.)
+            console.log(student2.aaa);
+
+            //객체.....딕셔너리, Map..컬렉션..형태의 사용....
+            var dic = {
+                "a" : 10,
+                "b" : 20,
+                "c" : "안녕하세요"
+            }
+
+            console.log(dic.a);
+            console.log(dic["a"]); // in java dic.get(a);
+            console.log(dic["b"]);
+
+            //....함수로 객체를 만듬(자바 스크립트적인 클래스 선언(객체 생성))
+            function Student(){ // 객체 선언법 => 대문자로 선언
+                console.log("학생 호출됨");
+                var a = 10; // 지역변수를 선언하는 방법
+                /* var이 선언된 경우 : 
+                Uncaught ReferenceError: a is not defined 
+                at <anonymous>:1:13 */
+                b = 20; // 윈도우 멤버변수를 선언하는 방식
+                this.c = 30; // this에 멤버추가, new로 생성된 객체에 추가되는 방식
+                /* a = 10; , b = 20; , this.c = 30; 
+                / => 세가지 모두 다른 메모리에 형성 */
+                // 20
+                
+            }
+            // 결론 : this를 써라~~
+            Student(); // 위험, 쓰지말 것 => 객체 생성용으로 만든 것이기 때문에
+
+            var ffff = 20;
+            d = 30;
+            // win라는 내장 객체가 있다.
+            console.log(ffff); // 20
+            console.log(window.ffff); 
+            // window : 이미 저장되어 있는 내장 객체에 c를 집어넣는다.
+            console.log(ffff);
+            console.log(window.ffff);
+            console.log(this.ffff); // in java 실행되는 코드의 주체
+            // console.log(ffff); = console.log(window.ffff); =  console.log(this.ffff);
+
+            var cc = 40;
+            dd = 50;
+
+            // Student(); // Window객체가 실행 주체
+            new Student(); // 함수에 new를 붙일 수 있다.
+            // 새로운 객체가 실행 주체
+            var s1 = new Student();
+            
+            // 객체 생성 예제.....
+            function PhoneData(name, number, birth){ // PhoneData라는 객체를 생성하겠다.
+            // function PhoneData(a, b, c) 도 가능    
+                this.name = name; // (=) this.name = a;
+                this.number = number; // (=) this.name = b;
+                this.birth = birth; // (=) this.name = c;
+                this.test = function(){
+                    console.log(this.name + this.number + this.birth);
+                }
+            }
+            // 생성자 겸 함수 선언(메소드 선언)
+            var p1 = new PhoneData("한조","111","000");
+            var p2 = new PhoneData("트레","222","333"); // 새로 인스턴스가 또 생성
+            console.log(p1.name);
+            console.log(p2.name);
+            p1.test();
+            p2.test();
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
