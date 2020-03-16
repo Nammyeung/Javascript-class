@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- 외부에서 jQuery를 다운받아서 실행 -->
+        <script>
+            function test(){
+                alert("안녕하세요");
+            }
+
+            $(); // $(); => jQuery(함수명)
+            
+            //var v1 = 20; // 변수명 설정 조건
+            //var tt = $(document);
+            //tt.ready(); // 매개변수에 콜백 함수를 넣을 수 있음. 
+            
+            // 문서가 로드가 되고 그려진 상태에서 호출하겠다.
+            test();
+            // (1) 제일 처음에 숫자 허용 x 
+            // (2) 변수명 및 함수명으로 특수문자는 _(언더바), $(달러표시)만 사용 가능
+
+            $(document).ready(function(){ // function을 내부에 한꺼번에 선언
+                alert('안녕하세요');
+            });
+            // 상위 한줄과 동일한 문구 => 
+            // var tt = $(document);
+            // tt.ready(); // 매개변수에 콜백 함수를 넣을 수 있음. 
+
+            $(function(){
+                // 문서가 로드되고 그림까지 그리고 호출되는 곳 
+                // alert("반갑습니다.");
+
+                $("h1").css("color", "red"); // css 선택자 처럼 선택자를 집어넣을 수 있음(요소를 뽑아내기 위한);
+                $("h1").css("color", "red").css("font-size","40px");
+                // document.elementById 없이 바로
+                // *************jQuery 라이브러리 vs JavaScript 기본 기능***************
+                $("#box1").css("color","blue"); // jQuery 라이브러리
+                // 바닐라 js
+                var box1 = document.getElementById("box1");
+                box1.style.color = "blue";
+                // java script 기본 api
+
+                document.getElementById("box1").style.color = "blue";
+
+                // 클래스 선택 jQeury
+                $(".c_box").css("color","red");
+                $(".c_box").css("font-size","30px");
+                // 클래스 때문에 앞에 .을 붙임
+                // R의 함수를 간소화하는 방법과 비슷하다고 생각하면됨
+                /*
+                var boxList = document.getElementByClassName("c_box"); // 배열로 return
+                for (box of boxList){
+                    box.style.color = "blue";
+                    box.style.fontSize = "30px";
+                }
+                */
+                //*************jQuery의 기능을 대신하는 javascript의 기능*************
+                document.querySelector("#box1").color = "yello";
+                document.querySelectorAll(".c_box")[0].style.color = "green"; 
+                // return을 배열로 받아옴.
+
+                //jQuery selector
+                $("#u1 li").css("color","red");
+                //getElementById ~ 생략가능
+
+                // 동적으로 함수 이벤트 연결시키기.
+                $("#btn1").on("click",addLI());
+                // 동적으로 연결시키는 방법
+                $("#btn1").on("click",function(){
+                    $("<li></li>").html("l1").appendTo("#u1");
+                });
+
+                document.getElementById("btn1").onclick = addLI;
+
+            });
+
+            function addLI(){
+                $("<li></li>").html("추가된거").appendTo("#u1"); // appendTo : 추가
+                $("<li></li>").html("추가된거").appendTo(u1); // appendTo : 추가
+                $("<li>추가된거</li>").appendTo(u1); // appendTo : 추가
+                //******************위 아래 동일**********************                
+                // var li = document.createElement("li");
+                // li.innerHTML = "추가된거";
+                // document.getElementById("u1").appendChild(li);
+
+                $("<li>안녕하세요</li>").html("l1").appendTo("#u1");
+                // 안녕하세요 => l1 or html이 우선?
+                $("<li>안녕하세요</li>").html("l1").appendTo("#u1");
+
+            }
+
+            function changeContent(){
+                $("#l1").html("바뀐내용");
+                $("#l1").html("<h1>바뀐 내용...</h1>"); //
+                $("#l1").text("<h1>바뀐 내용...</h1>"); //
+                // (html과 text의 차이 확인)
+                // $("#li").text("text사용해서 바꿈")
+
+                // document.getElementById("l1").innerHTML = "<h1>바뀐 내용...</h1>";
+                document.getElementById("l1").innerText = "<h1>바뀐 내용...</h1>";
+            }
+
+            function addClassAttr(){
+                $("#box1").addClass("aaaa");
+                $("#box1").addClass("bbbb");
+                $("#box1").addClass("cccc");
+                // 여러 스타일을 적용해놓고 class를 통해 쓰고 싶을때
+            }
+
+            function removeClassAttr(){
+                $("#box1").removeClass("bbbb");
+            }
+
+            function addAttr(){
+                $("#box1").attr("qqqq","vvvv");
+                // id 혹은 클래스명 변경
+            }
+
+            function getAttr(){
+                var value = $("#box1").attr("qqqq");
+                alert(value);
+            }
+// setter와 getter가 같은 함수 명을 가지고 있음
+
+            function testText(){
+                // $("#box1").text("dadfeafaeefaef"); // setter(text를 넣으면)
+                var value = $("#box1").text(); // return을 해줌(getter의 역할)
+                alert(value);
+            }
+
+            function removeAttr(){
+                $("#box1").removeAttr("qqqq");
+            }
+
+            function getCssValue(){
+                $("#box1").css("color","red");//setter로 이용
+                var value = $("#box1").css("color"); // getter로 이용
+                alert(value); // getter가 RGB코드로 가져옴을 확인할 수 있음
+            }
+
+            function removeElement(){
+                $("#box1").remove(); //박스 자체를 없애 버리겠다.
+            }
+
+            function emptyContent(){
+                $("#box1").empty(); // 내용만 없애겠다.
+            }
+
+            function addElement(){
+                // $("<li>추가된 객체....<li>").appendTo("#u2"); // 안쪽에서 맨 끝에 붙음
+                // $("<li>추가된 객체....<li>").prependTo("#u2"); // 안쪽에서 맨 아래에 붙음
+                // $("<li>추가된 객체....<li>").insertAfter("#l2"); // 동일한 급에서 바로 다음에 붙음.
+                $("<li>추가된 객체....</li>").insertBefore("#l2");
+                }
+
+        </script>
+
+        <style>
+            .aaaa{
+                font-size : 70px;
+            }
+
+            .bbbb{
+                background-color : blueviolet;
+            }
+
+            .cccc{
+                color : chartreuse;
+            }
+
+        </style>
+
+    </head>
+    <body onload = "test()">
+        <div id = "box1">안녕하세요</div>
+        <h1>안녕하세요</h1>
+        <div class = "c_box">반갑습니다.</div>
+        <div class = "c_box">반갑습니다.</div>
+        <div class = "c_box">반갑습니다.</div>
+        <div class = "c_box">반갑습니다.</div>
+        <div class = "c_box">반갑습니다.</div>
+
+
+        <ul id = "u1">
+            <li>안녕하세요</li>
+            <li id = "l1">안녕하세요</li>
+            <li>안녕하세요</li>
+            <li>안녕하세요</li>
+            <li>안녕하세요</li>            
+        </ul>
+
+        <ul id = "u2">
+            <li>반갑습니다</li>
+            <li>반갑습니다</li>
+            <li id = "l2">반갑습니다</li>
+            <li>반갑습니다</li>
+            <li>반갑습니다</li>
+            <li>반갑습니다</li>
+        </ul>
+
+        <div id = "btn1" onclick = "addLI()">버튼</div>
+        <div id = "btn1">버튼</div> 
+         <!-- click이 연결이 안되어 있는데 javascript로 가능한가 -->
+        <div id = "btn2" onclick = "changeContent()">내용바꾸기 버튼</div>
+        <div onclick = "addClassAttr()">클래스 속성 추가</div>
+        <div onclick = "removeClassAttr()">속성 제거....box1 기준...</div>
+        <!-- 클래스도 속성이다 -->
+        <div onclick = "addAttr()">일반 속성 추가..</div>
+        <div onclick = "getAttr()">속성 값 가져오기..</div>
+        <div onclick = "testText()">내부 text 조작...?</div>
+        <div onclick = "removeAttr()">일반 속성 제거</div>
+        <div onclick = "getCssValue()">css color 값 가져오기</div>
+        <div onclick = "removeElement()">객체 제거....</div>
+        <div onclick = "emptyContent()">내부 제거??</div>
+        <div onclick = "addElement()">객체 추가 테스트</div>
+    </body>
+</html>
+
+<!-- javascript library 구글링 => 사용자들의 library 정리  -->
+<!-- 39 of the best JavaScript libraries and frameworks to try in 2020
+anime.js
+=> animation을 import해서 끌어다 쓰는 방법이 나와있을 것임 -->
+<!-- 움직이는 모습을 구현할 때
+직접 구현 vs 찾아쓰기(win) -->
+<!-- jquery 내려가고 (React.js가 올라가는 추세), Bootstrap -->
+<!-- https://insights.stackoverflow.com/survey/2019 참조 ->
+
+jQuery library 목적
+ (1) 문서 객체 모델과 관련된 처리를 쉽게 구현
+ (2) 일관된 이벤트 연결을 쉽게 구현
+ (3) 시각적 효과를 쉽게 구현
+ (4) Ajax 애플리케이션을 쉽게 개발(서버가 있어야 가능)
+
+ CDN : 클라우드
+ Google CDN
+
+ JQuery
+
+ 3.x snippet:

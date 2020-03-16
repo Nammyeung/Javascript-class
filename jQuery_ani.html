@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <style>
+            #box1{
+            width : 500px;
+            height : 500px;
+            background-color : chocolate;
+            }
+        </style>
+        <script>
+            $(function(){
+                $("#btn1").on("click", function(){
+                    $("#box1").toggle()})
+            });
+            function show(){
+                $("#box1").show(1000);
+            }
+            function hide(){
+                $("#box1").hide(1000);
+            }
+            function slideDown(){
+                $("#box1").slideDown(1000);
+            }
+
+            function slideUp(){
+                $("#box1").slideUp(1000);
+            }
+
+            function slideToggle(){
+                $("#box1").slideToggle(1000);
+            }
+
+            function fadeToggle(){
+                $("#box1").fadeToggle(1000);
+            }
+        </script>
+
+    </head>
+    <body>
+        <div id = "box1"></div>
+        <input id = "btn1" type="button" value = "test">
+        <input onclick = "show()" type="button" value = "보이기">
+        <input onclick = "hide()" type="button" value = "숨기기">
+        <input onclick = "slideDown()" type="button" value = "스륵내리기"> 
+        <input onclick = "slideUp()" type="button" value = "스륵올리기">
+        <input onclick = "slideToggle()" type="button" value = "스륵">
+        <input onclick = "fadeToggle()" type="button" value = "fade">        
+        <!-- id 배제 -->
+        <!-- javascript로 타이머 돌리고 input 넣고 -->
+    </body>
+</html>

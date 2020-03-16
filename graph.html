@@ -1,0 +1,85 @@
+<!-- Google chart API를 활용해 그래프 그리기 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        
+        <style>
+            
+            #box1{
+                width : 500px;
+                height : 500px;
+                border : 1px solid black;
+            }
+            
+            #box2{
+                width : 500px;
+                height : 500px;
+                border : 1px solid black;
+            }
+
+        </style>
+        
+        <script type="text/javascript" 
+        src="https://www.gstatic.com/charts/loader.js">
+        </script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(pie);
+          // callback 함수를 통해 불러옴
+          function pie() {
+    
+            var data = google.visualization.arrayToDataTable([
+              ['성별', '회원수'],
+              ['남자',     150],
+              ['여자',      70]
+            ]); // 데이터가 들어가 있는 공간
+            // 이중 배열 형태
+    
+            var options = {
+              title: '회원 성별 비율'
+            };
+    
+            var chart = new google.visualization.PieChart(document.getElementById('box1')); // div의 아이디를 입력해 줘야함
+            // pie차트라는 메소드를 함수로 호출, new에서 객체를 생성했을 때 
+            chart.draw(data, options); // 차트를 그리겠다.
+          }
+        </script>
+
+        <!-- ******************라인차트****************** -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(line);
+
+        function line() {
+            var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004',  1000,      400],
+            ['2005',  1170,      460],
+            ['2006',  660,       1120],
+            ['2007',  1030,      540]
+        ]);
+            // 데이터베이스에서 데이터를 어떻게 끌어와서 표시할 것인가???
+        var options = {
+            title: 'Company Performance',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('box2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    </head>
+    <body>
+        <div id = "box1"></div>
+        <div id = "box2"></div>
+        <!-- chart는 박스 크기를 지정해 줘야함 -->
+    </body>
+</html>
+
+<!-- Google chart API를 활용해 그래프 그리기 -->

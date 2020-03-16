@@ -1,0 +1,299 @@
+<!-- *******************************레이아웃 연습하기***************************** -->
+<!DOCTYPE html>
+<html>
+    <style>
+    *{margin : 0; padding : 0;}
+    /* 초기값 설정 전체 틀의 여백이 없어짐(좌측과 상단이 붙는 것을 확인할 수 있음)*/
+        h1 {text-align : center ; margin : 20px auto;}
+        
+        .wrapper {width : 1000px; margin : 0; height : 2000px;}
+        
+        .grid {margin : 5px; width : 1000px; height : 
+        auto; border : 1px solid black; float : left;}
+    
+    .grid1 { width : 1000px; height : 100px; }
+    .grid2 { width : 1000px; height : 40px; background-color : grey}
+    .grid3 { width : 1000px; height : 380px; }
+    .grid4 { width : 1000px; height : 400px; }
+    .grid5 { width : 1000px; height : 600px; }
+    .grid6 { width : 1000px; height : 40px; background-color : grey}
+    .grid7 { width : 1000px; height : 200px; }
+    
+    /* *************************레이아웃 참조************************ */
+    
+    .grid3_left{
+        width : 230px;
+        height : 360px;
+        float : left;
+    }
+
+    .grid3_main{
+        width : 520px;
+        height : 360px;
+        float : left;
+    }
+    
+    .grid3_right1{
+        width : 200px;
+        height : 200px;
+        float : left;
+    }
+
+    .grid3_right2{
+        width : 200px;
+        height : 120px;
+        float : left;
+        margin : -30px 0px 0px 10px;
+    }
+
+    .box{
+        width : 170px;
+        height : 191px;
+        position : relative;
+
+    }
+
+    .back{
+        width : 170px;
+        height : 191px;
+        position : absolute;
+        top : 0px;
+        left : 0px;
+    }
+
+    .front{
+        width : 140px;
+        height : 117px;
+        position : absolute;
+        top : 60px;
+        left : 20px;
+    }
+
+    .grid4-1{
+        width : 592px;
+        height : 389px;
+        margin : 5px 5px 5px 5px;
+        float : left;
+    }
+
+    .grid4-2{
+        width : 390px;
+        height : 389px;
+        margin : 5px 2px auto;
+        float : right;
+    }
+
+    .grid55{
+        width : 206px;
+        height : 206px;
+        padding : 0px 0px 100px 0px;
+        float : left;
+    }
+    .grid77{
+        margin : 5px; border : 1px solid black; float : left;
+    }
+    .grid7-1{
+        width : 178px;
+        height : 40px;
+        margin : 80px 30px 30px 20px;
+        float : left;  
+    }
+
+    .grid7-2{
+        width  : 493px;
+        height : 90px;
+        margin : 50px 30px 30px 20px;
+        float : left;
+    }
+
+    .grid7-3{
+        width  : 140px;
+        height : 50px;
+        margin : 70px 30px 30px 30px;
+        float : left;
+    }
+
+    .li-title{
+        color : yellowgreen;
+        text-align : center;
+    }
+
+    .li1{
+        font-size : 10px;
+        text-align : center;
+    }
+
+    .grid4-img1{
+        width : 224px;
+        height : 269px;
+        float : left;
+        margin : 10px 30px 30px 0px;
+    }
+
+    .grid4-img2{
+        width : 224px;
+        height : 269px;
+        float : left;
+        margin : 10px 30px 30px 30px;
+    }
+
+    </style>
+    <head>
+        <meta charset="utf-8">
+        <h1> DAYUN ART LAYOUT </h1>
+      
+    </head>
+    <body>
+        <div class = "wrapper">
+            <div class = "grid grid1"></div>
+            <div class = "grid grid2"></div>
+            <div class = "grid grid3">
+                <div class = grid3_left>
+                
+                </div>
+
+                <div class = grid3_main>
+                    <img src = "./test2/img_shop/main_img.gif">
+                </div>
+                <div class = grid3_right1>
+
+                </div>
+                <div class = grid3_right2>
+                    <div class = "box">
+                        <div class = "back">
+                            <img src = "./test2/img_shop/week_event.gif">
+                        </div>
+                        <div class = "front">    
+                            <img src = "./test2/img_shop/week_event_img.gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "grid grid4">
+                <div class = "grid5 grid4-1">
+                <div class = "box">
+                    <div class = "back">
+                        <img src = "./test2/img_shop/special_shop.gif">
+                    </div>
+                    <div class = "front">
+                        <div class = "grid4-img1">
+                        <img src = "./test2/img_shop/special_img1.gif">
+                        </div>
+                        <div class = "grid4-img2">
+                        <img src = "./test2/img_shop/special_img2.gif">
+                        </div>
+                    </div>
+                </div>
+                </div>    
+                <div class = "grid5 grid4-2">
+                 
+                </div> 
+            </div>
+            
+            <div class = "grid grid5">
+                <div class = "grid55 grid5-1">
+                    <img src = "./test2/img_shop/new_01.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-2">
+                    <img src = "./test2/img_shop/new_02.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-3">
+                    <img src = "./test2/img_shop/new_03.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-4">
+                    <img src = "./test2/img_shop/new_04.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-5">
+                    <img src = "./test2/img_shop/new_05.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-6">
+                    <img src = "./test2/img_shop/new_06.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-7">
+                    <img src = "./test2/img_shop/new_07.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+                <div class = "grid55 grid5-8">
+                    <img src = "./test2/img_shop/new_08.jpg">
+                    <br>
+                    <ul>
+                    <h5 class = "li-title">맞춤제작(풍경)</h5>
+                    <br>
+                    <li class = "li1">원하는 사이즈로 제작 가능</li>
+                    <br>
+                    <li class = "li1">20,000원</li>
+                    </ul>
+                </div>
+            <div class = "grid grid6"></div>
+            <div class = "grid grid7">
+                <div class = "grid77 grid7-1">
+                    <img src = "./test2/img_shop/footer_logo.gif">
+
+                </div>
+                <div class = "grid77 grid7-2">
+                    <img src = "./test2/img_shop/address.gif">
+
+                </div>
+                <div class = "grid77 grid7-3">
+                    <img src = "./test2/img_shop/footer_banner_01.gif">
+
+                </div>
+
+        </div>
+    </body>
+</html>
